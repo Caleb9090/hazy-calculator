@@ -2,17 +2,17 @@ function isSkippedValue(value) {
   return !value
 }
 
-function isNumericValue(value) {
-  return !isNaN(value)
+function   isNumericValue(value){
+  return !isNaN(value) && value !==''
 }
 
 function isNothingValue(value) {
-  return value === null
+  return value === null || value === undefined
 }
 
-function isAcceptableValue(value) {
+function isAcceptableValue(value) {isNumericValue(value)
   const operators = ['+', '-', '*', '/']
-  return typeof value === Number || operators.includes(value)
+  return typeof isNumericValue(value)|| operators.includes(value)
 }
 
 function performCalculationStep(firstOperand, operator, secondOperand) {
